@@ -18,8 +18,13 @@ class Game(arcade.Window):
         arcade.draw_rectangle_outline(self.width//2, self.height//2, self.width-30,
                                      self.height-30, arcade.color.WHITE, border_width=10)
         
-        arcade.draw_line(self.width//2, 30, self.width//2, self.height-30,
-                        arcade.color.WHITE, line_width=10)
+        #arcade.draw_line(self.width//2, 30, self.width//2, self.height-30,
+        #                arcade.color.WHITE, line_width=10)
+
+        for i in range(19):
+            arcade.draw_line(self.width//2, 20+25*i, self.width//2, 40+25*i, arcade.color.WHITE, line_width=10)
+
+
         self.rocket1.draw()
         self.rocket2.draw()
         self.ball.draw()
