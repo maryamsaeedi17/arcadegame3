@@ -48,6 +48,14 @@ class Game(arcade.Window):
                 del self.ball
                 del self.rocket
 
+        if len(self.brick_list)==0:
+            arcade.draw_text("YOU WIN!!!", self.width//9 , self.height//2 , arcade.color.RED , 40)
+            a=time.time()
+            if (time.time()-a)>10:
+                del self.ball
+                del self.rocket
+
+
 
         arcade.finish_render()
 
@@ -78,12 +86,8 @@ class Game(arcade.Window):
         for brick in self.brick_list:
             if arcade.check_for_collision(self.ball, brick):
                 self.ball.change_y *= -1
-                del brick
+                self.brick_list.remove(brick)
                 self.rocket.score +=10
-
-
-
-        
         
 
         if self.ball.center_y < 0:
