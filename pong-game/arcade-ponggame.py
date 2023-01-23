@@ -47,8 +47,12 @@ class Game(arcade.Window):
         if self.ball.center_y<30 or self.ball.center_y > self.height-30:
             self.ball.change_y *= -1
 
-        if arcade.check_for_collision(self.ball, self.rocket1) or arcade.check_for_collision(self.ball, self.rocket2):
-            self.ball.change_x *= -1
+        if arcade.check_for_collision(self.ball, self.rocket1):
+            self.ball.change_x = 1
+
+
+        if arcade.check_for_collision(self.ball, self.rocket2):
+            self.ball.change_x = -1
 
         if self.ball.center_x < 0:
             self.rocket2.score += 1
